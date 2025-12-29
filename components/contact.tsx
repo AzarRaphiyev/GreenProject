@@ -1,12 +1,7 @@
 "use client"
-
-import type React from "react"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { ReactNode, useState } from "react"
+import emailjs from "@emailjs/browser"
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"
-import { useState } from "react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -16,125 +11,137 @@ export default function Contact() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // EmailJS integration will be added here
-    console.log("Form submitted:", formData)
+    setLoading(true)
+
+    emailjs
+      .send(
+        "service_12l9j1q",
+        "template_zypzkrb",
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "fT4CUHI5KgxM2Jrp-"
+      )
+      .then(() => {
+        setStatus("Mesaj uğurla göndərildi ✅")
+        setFormData({ name: "", email: "", phone: "", message: "" })
+        setLoading(false)
+      })
+      .catch(() => {
+        setStatus("Xəta baş verdi ❌ Zəhmət olmasa yenidən cəhd edin.")
+        setLoading(false)
+      })
   }
 
   return (
     <section className="py-24 px-4 bg-[#1E3A2F]" id="contact">
       <div className="max-w-7xl mx-auto">
+
+        {/* TITLE */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Əlaqə</h2>
-          <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">Bizimlə əlaqə saxlayın və layihənizi müzakirə edək</p>
+          <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-4">
+            Əlaqə
+          </h2>
+          <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">
+            Bizimlə əlaqə saxlayın və layihənizi müzakirə edək
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-[#0F2A1D] p-8 rounded-lg border border-[#2A4A3A]">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-[#F5F1E8] mb-2 font-semibold">Ad, Soyad</label>
-                <Input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-[#1E3A2F] border-[#2A4A3A] text-[#F5F1E8] focus:border-[#C9A24D]"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-[#F5F1E8] mb-2 font-semibold">Email</label>
-                <Input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-[#1E3A2F] border-[#2A4A3A] text-[#F5F1E8] focus:border-[#C9A24D]"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-[#F5F1E8] mb-2 font-semibold">Telefon</label>
-                <Input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="bg-[#1E3A2F] border-[#2A4A3A] text-[#F5F1E8] focus:border-[#C9A24D]"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-[#F5F1E8] mb-2 font-semibold">Mesaj</label>
-                <Textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-[#1E3A2F] border-[#2A4A3A] text-[#F5F1E8] focus:border-[#C9A24D] min-h-32"
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-[#C9A24D] hover:bg-[#B89240] text-[#0F2A1D] font-semibold py-6 text-lg transition-all duration-300 hover:scale-105"
-              >
-                Göndər
-              </Button>
-            </form>
-          </div>
 
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A] flex items-start gap-4 hover:border-[#C9A24D] transition-colors duration-300">
-              <div className="bg-[#C9A24D]/10 p-3 rounded-lg">
-                <Phone className="h-6 w-6 text-[#C9A24D]" />
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-bold text-[#F5F1E8] mb-1">Telefon</h3>
-                <p className="text-[#E5D5A8]">+994 XX XXX XX XX</p>
-              </div>
+          {/* FORM */}
+          <form
+            onSubmit={handleSubmit}
+            className="bg-[#0F2A1D] p-8 rounded-lg border border-[#2A4A3A] space-y-6"
+          >
+            <div>
+              <label className="text-[#F5F1E8] font-semibold">Ad, Soyad</label>
+              <input
+                type="text"
+                required
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                className="w-full mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] focus:border-[#C9A24D]"
+              />
             </div>
 
-            <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A] flex items-start gap-4 hover:border-[#C9A24D] transition-colors duration-300">
-              <div className="bg-[#C9A24D]/10 p-3 rounded-lg">
-                <Mail className="h-6 w-6 text-[#C9A24D]" />
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-bold text-[#F5F1E8] mb-1">Email</h3>
-                <p className="text-[#E5D5A8]">info@greenproject.az</p>
-              </div>
+            <div>
+              <label className="text-[#F5F1E8] font-semibold">Email</label>
+              <input
+                type="email"
+                required
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                className="w-full mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] focus:border-[#C9A24D]"
+              />
             </div>
 
-            <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A] flex items-start gap-4 hover:border-[#C9A24D] transition-colors duration-300">
-              <div className="bg-[#C9A24D]/10 p-3 rounded-lg">
-                <MapPin className="h-6 w-6 text-[#C9A24D]" />
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-bold text-[#F5F1E8] mb-1">Ünvan</h3>
-                <p className="text-[#E5D5A8]">Bakı, Azərbaycan</p>
-              </div>
+            <div>
+              <label className="text-[#F5F1E8] font-semibold">Telefon</label>
+              <input
+                type="tel"
+                required
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
+                className="w-full mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] focus:border-[#C9A24D]"
+              />
             </div>
+
+            <div>
+              <label className="text-[#F5F1E8] font-semibold">Mesaj</label>
+              <textarea
+                required
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+                className="w-full mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] min-h-[120px] focus:border-[#C9A24D]"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#C9A24D] hover:bg-[#B89240] text-[#0F2A1D] font-semibold py-4 rounded transition hover:scale-105"
+            >
+              {loading ? "Göndərilir..." : "Göndər"}
+            </button>
+
+            {status && (
+              <p className="text-center text-[#C9A24D] mt-4">
+                {status}
+              </p>
+            )}
+          </form>
+
+          {/* CONTACT INFO */}
+          <div className="space-y-6">
+            <Info icon={<Phone />} title="Telefon" value="+994 XX XXX XX XX" />
+            <Info icon={<Mail />} title="Email" value="info@greenproject.az" />
+            <Info icon={<MapPin />} title="Ünvan" value="Bakı, Azərbaycan" />
 
             <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A]">
-              <h3 className="font-serif text-xl font-bold text-[#F5F1E8] mb-4">Sosial Şəbəkələr</h3>
+              <h3 className="text-xl font-bold text-[#F5F1E8] mb-4">
+                Sosial Şəbəkələr
+              </h3>
               <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="bg-[#C9A24D]/10 p-3 rounded-lg hover:bg-[#C9A24D] transition-colors duration-300 group"
-                >
-                  <Facebook className="h-6 w-6 text-[#C9A24D] group-hover:text-[#0F2A1D]" />
-                </a>
-                <a
-                  href="#"
-                  className="bg-[#C9A24D]/10 p-3 rounded-lg hover:bg-[#C9A24D] transition-colors duration-300 group"
-                >
-                  <Instagram className="h-6 w-6 text-[#C9A24D] group-hover:text-[#0F2A1D]" />
-                </a>
-                <a
-                  href="#"
-                  className="bg-[#C9A24D]/10 p-3 rounded-lg hover:bg-[#C9A24D] transition-colors duration-300 group"
-                >
-                  <Linkedin className="h-6 w-6 text-[#C9A24D] group-hover:text-[#0F2A1D]" />
-                </a>
+                <Social icon={<Facebook />} />
+                <Social icon={<Instagram />} />
+                <Social icon={<Linkedin />} />
               </div>
             </div>
           </div>
@@ -142,4 +149,39 @@ export default function Contact() {
       </div>
     </section>
   )
+}
+
+function Info({
+  icon,
+  title,
+  value,
+}: {
+  icon: ReactNode
+  title: string
+  value: ReactNode
+}) {
+  return (
+    <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A] flex gap-4 items-center">
+      <div className="bg-[#C9A24D]/10 p-3 rounded">
+        {icon}
+      </div>
+      <div>
+        <h3 className="text-[#F5F1E8] font-bold">{title}</h3>
+        <p className="text-[#E5D5A8]">{value}</p>
+      </div>
+    </div>
+  )
+}
+
+function Social({ icon }: { icon: ReactNode }) {
+  return (
+    <a
+      href="#"
+      className="bg-[#C9A24D]/10 p-3 rounded hover:bg-[#C9A24D] transition"
+    >
+      <div className="text-[#C9A24D] hover:text-[#0F2A1D]">
+        {icon}
+      </div>
+    </a>
+  );
 }

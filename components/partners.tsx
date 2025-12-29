@@ -2,12 +2,12 @@
 
 // Partner logos - using placeholders
 const partners = [
-  { name: "Partner 1", logo: "/abstract-logo-1.png" },
-  { name: "Partner 2", logo: "/abstract-logo-geometric.png" },
-  { name: "Partner 3", logo: "/abstract-logo-design-3.png" },
-  { name: "Partner 4", logo: "/abstract-logo-4.png" },
-  { name: "Partner 5", logo: "/abstract-logo-5.png" },
-  { name: "Partner 6", logo: "/company-logo-6.png" },
+  { name: "PMD Group", logo: "https://pmdgroup.az/images/pmd.svg" },
+  { name: "PDM Projects", logo: "https://pmdprojects.az/M0/mainbgr/20240403_100914_1712124554_853e619585.svg" },
+  { name: "FMG Group", logo: "https://www.fmg.az/assets/images/logo.svg" },
+  { name: "MOR MMC", logo: "https://www.mor.az/svg/logo-ag.png" },
+  { name: "IMF Group", logo: "https://imfco.az/images/logo.svg" },
+  { name: "UNICO Group ", logo: "https://b4064436.smushcdn.com/4064436/wp-content/uploads/2025/08/uloq99.webp?lossy=2&strip=1&webp=1" },
 ]
 
 export default function Partners() {
@@ -26,7 +26,7 @@ export default function Partners() {
             {partners.map((partner, index) => (
               <div
                 key={`first-${index}`}
-                className="flex-shrink-0 w-40 h-24 bg-[#0F2A1D] rounded-lg flex items-center justify-center border border-[#2A4A3A] hover:border-[#C9A24D] transition-colors duration-300"
+                className="shrink-0 w-40 h-24 bg-[#0F2A1D] rounded-lg flex items-center justify-center border border-[#2A4A3A] hover:border-[#C9A24D] transition-colors duration-300"
               >
                 <img
                   src={partner.logo || "/placeholder.svg"}
@@ -39,7 +39,7 @@ export default function Partners() {
             {partners.map((partner, index) => (
               <div
                 key={`second-${index}`}
-                className="flex-shrink-0 w-40 h-24 bg-[#0F2A1D] rounded-lg flex items-center justify-center border border-[#2A4A3A] hover:border-[#C9A24D] transition-colors duration-300"
+                className="shrink-0 w-40 h-24 bg-[#0F2A1D] rounded-lg flex items-center justify-center border border-[#2A4A3A] hover:border-[#C9A24D] transition-colors duration-300"
               >
                 <img
                   src={partner.logo || "/placeholder.svg"}
