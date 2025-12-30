@@ -2,6 +2,8 @@
 import { ReactNode, useState } from "react"
 import emailjs from "@emailjs/browser"
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"
+import Link from "next/link"
+import { FaInstagram } from "react-icons/fa";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -47,7 +49,7 @@ export default function Contact() {
 
         {/* TITLE */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-4">
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">
             Əlaqə
           </h2>
           <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">
@@ -130,8 +132,10 @@ export default function Contact() {
 
           {/* CONTACT INFO */}
           <div className="space-y-6">
-            <Info icon={<Phone />} title="Telefon" value="+994 XX XXX XX XX" />
-            <Info icon={<Mail />} title="Email" value="info@greenproject.az" />
+            <Info icon={<Phone />} title="Telefon" value="+994 55 619 13 13" />
+            <Info icon={<Phone />} title="Telefon" value="+994 55 332 13 13" />
+            <Info icon={<Mail />} title="Email" value="ismayilov_88@mail.ru" />
+            <Info icon={<Mail />} title="Email" value="kamilla.greenproject@gmail.com" />
             <Info icon={<MapPin />} title="Ünvan" value="Bakı, Azərbaycan" />
 
             <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A]">
@@ -139,9 +143,9 @@ export default function Contact() {
                 Sosial Şəbəkələr
               </h3>
               <div className="flex gap-4">
-                <Social icon={<Facebook />} />
-                <Social icon={<Instagram />} />
-                <Social icon={<Linkedin />} />
+                <Link className="bg-transparent" href={'https://www.instagram.com/greenproject.az/'}>
+                <FaInstagram  size={27} className="text-[#C9A24D] hover:scale-105 transition-transform duration-300 "/>
+                </Link>
               </div>
             </div>
           </div>
@@ -173,15 +177,4 @@ function Info({
   )
 }
 
-function Social({ icon }: { icon: ReactNode }) {
-  return (
-    <a
-      href="#"
-      className="bg-[#C9A24D]/10 p-3 rounded hover:bg-[#C9A24D] transition"
-    >
-      <div className="text-[#C9A24D] hover:text-[#0F2A1D]">
-        {icon}
-      </div>
-    </a>
-  );
-}
+

@@ -38,7 +38,7 @@ export default function Services() {
     <section className="py-24 px-4 bg-[#0F2A1D]" id="services">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Xidmətlərimiz</h2>
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Xidmətlərimiz</h2>
           <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">
             Sizin üçün ən yaxşı landşaft həllərini təqdim edirik
           </p>

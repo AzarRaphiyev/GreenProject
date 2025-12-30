@@ -49,8 +49,8 @@ export default function Footer() {
           <div>
             <h3 className="font-serif text-xl font-bold text-[#F5F1E8] mb-4">Əlaqə</h3>
             <ul className="space-y-2 text-[#E5D5A8]">
-              <li>+994 XX XXX XX XX</li>
-              <li>info@greenproject.az</li>
+              <li>+994 55 619 13 13</li>
+              <li>kamilla.greenproject@gmail.com</li>
               <li>Bakı, Azərbaycan</li>
             </ul>
           </div>

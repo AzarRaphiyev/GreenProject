@@ -28,7 +28,7 @@ export default function Mission() {
     <section className="py-24 px-4 bg-[#1E3A2F]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Üstünlüklərimiz</h2>
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Üstünlüklərimiz</h2>
           <div className="w-24 h-1 bg-[#C9A24D] mx-auto" />
         </div>
 

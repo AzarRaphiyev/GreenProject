@@ -26,35 +26,35 @@ const projects = [
     id: 4,
     name: "Təbriz Evləri",
     description: "Premium təbii qazon örtüyünün salınması",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://djb.az/uploads/posts/2018-01/1515048083_067.jpg",
   },
   {
     id: 5,
     name: "Çinar Plaza",
     description: "Premium təbii qazon örtüyünün salınması",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://pmdgroup.az/resized/resize1920/center/pages/46/photos-3.jpg",
   },
   {
     id: 6,
     name: "Excelsior Hotel & Spa Baku",
     description: "Premium təbii qazon örtüyünün salınması",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/84/9d/9b/excelsior-hotel-baku.jpg?w=900&h=500&s=1",
   },
   {
     id: 7,
     name: "Zaqatala Kapital Bank",
     description: "Yaşıllıqlara baxım xidməti",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://pmdprojects.az/img/1583/thumbs/kapital_bank_zaqatala",
   },
   {
     id: 8,
-    name: "Port Baku Tower 1 ",
+    name: "Port Baku Tower 1",
     description: "Ofis daxilində premium dekorativ bitkilərin seçimi və quraşdırılması",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://chapman-taylor.transforms.svdcdn.com/production/uploads/Chapman_Taylor_Port-Baku-Tower_018.jpg?w=2048&h=1366&q=90&auto=format&fit=crop&dm=1574183257&s=3b436ed7a3bf54a77aa14c581675d815",
   },
   {
     id: 9,
-    name: "Azərbaycan Xəzər Dəniz Gəmiçiliyi ",
+    name: "Azərbaycan Xəzər Dəniz Gəmiçiliyi",
     description: "Premium səviyyəli yaşıllaşdırma işləri",
     image: "/luxury-villa-garden-landscaping.jpg",
   },
@@ -62,37 +62,37 @@ const projects = [
     id: 10,
     name: "Pirallahi Nərəkənd",
     description: "Premium səviyyəli yaşıllaşdırma işləri",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://lh4.googleusercontent.com/proxy/LgMvnUHKTQommx47osUEmtDMSAbJV7b6kQROjjrzEGMjiTiXIzpA5vxyWg-pyhGiwKso2itdoHID0jWMn4gPdPk3oEhy7bgLnNJ2a887dMnvafs",
   },
   {
     id: 11,
     name: "Zəngilan rayonu Ağalı Hotel",
     description: "Premium səviyyəli yaşıllaşdırma işləri",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://iqtisadiyyat.az/storage/posts/3df26009a3cae18.webp",
   },
   {
     id: 12,
     name: "Xazri Villa Sea Side Baku",
     description: "Ərazinin peşəkar şəkildə təmizlənməsi və abadlığa hazırlığı",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/607879667.jpg?k=d24f3b9463ac39bfb93d94fea14dc650d5f599029d12f3baf64fd99c3f14df4f&o=",
   },
   {
     id: 13,
     name: "Şuşa SOCAR petrolium",
     description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://az.trend.az/media/2025/02/06/socar_zapravka_shusha_060225_4.jpg",
   },
   {
     id: 14,
     name: "Müşfiqabad SOCAR petrolium",
     description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQGI1nJHs6IVsA/feedshare-shrink_800/feedshare-shrink_800/0/1723455152907?e=2147483647&v=beta&t=psQV5zAsAbEXKzimAAws4vt6uJPAHbnqVQtq_v4K8rc",
   },
   {
     id: 15,
     name: "Şəmkir SOCAR petrolium",
     description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
-    image: "/luxury-villa-garden-landscaping.jpg",
+    image: "https://socar-petroleum.az/imageg_500_300_news_23_64_1.png_articles_23.jpg",
   },
  
 ]
@@ -112,7 +112,7 @@ export default function Portfolio() {
     <section className="py-24 px-4 bg-[#0F2A1D]" id="portfolio">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Portfolio</h2>
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Portfolio</h2>
           <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">Tamamladığımız layihələr</p>
         </div>
 
@@ -128,10 +128,12 @@ export default function Portfolio() {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.name}
+                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-black/35 z-10" />
                 <div className="absolute inset-0 bg-liner-to-t from-[#0F2A1D] via-[#0F2A1D]/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-30">
                   <h3 className="font-serif text-2xl font-bold text-[#F5F1E8] mb-2">{project.name}</h3>
                   <p className="text-[#E5D5A8] text-sm">{project.description}</p>
                 </div>

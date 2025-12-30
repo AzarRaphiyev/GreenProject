@@ -38,6 +38,7 @@ export default function Hero() {
           text-[#0F2A1D]
           font-semibold
           px-8 
+          py-4
           text-lg
 
           transition-all
@@ -58,7 +59,7 @@ export default function Hero() {
             hover:bg-[#C9A24D]
             hover:text-[#0F2A1D]
             font-semibold
-            px-8 py-6
+            px-8 py-4
             text-lg
             transition-all
             duration-300

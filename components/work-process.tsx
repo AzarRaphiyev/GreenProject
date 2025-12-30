@@ -62,7 +62,7 @@ export default function WorkProcess() {
     <section ref={sectionRef} className="py-24 px-4 bg-[#0F2A1D]" id="process">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-4">İş Prosesimiz</h2>
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">İş Prosesimiz</h2>
           <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">Hər addımda peşəkarlıq və şəffaflıq</p>
         </div>
 
