@@ -8,7 +8,7 @@ export default function About() {
             <h2 className="font-serif text-5xl md:text-6xl font-bold text-[#F5F1E8] mb-6">Biz Kimik</h2>
             <div className="space-y-4 text-[#E5D5A8] leading-relaxed">
               <p className="text-lg">
-                <span className="text-[#C9A24D] font-semibold">GREEN PROJECT</span> Azərbaycanda premium səviyyəli yaşıllaşdırma və landşaft xidmətləri göstərən ixtisaslaşmış şirkətdir.
+                <span className="text-[#D2A85A] font-semibold">GREEN PROJECT</span> Azərbaycanda premium səviyyəli yaşıllaşdırma və landşaft xidmətləri göstərən ixtisaslaşmış şirkətdir.
 
               </p>
               <p className="text-lg">

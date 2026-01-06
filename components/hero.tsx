@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { forwardRef, useEffect, useState } from "react"
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -11,6 +11,7 @@ export default function Hero() {
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
