@@ -45,7 +45,7 @@ export default function Contact() {
 
   return (
     <section className="py-24 px-4 bg-[#1E3A2F]" id="contact">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto ">
 
         {/* TITLE */}
         <div className="text-center mb-16">
@@ -62,10 +62,11 @@ export default function Contact() {
           {/* FORM */}
           <form
             onSubmit={handleSubmit}
-            className="bg-[#0F2A1D] p-8 rounded-lg border border-[#2A4A3A] space-y-6"
+            className="bg-[#0F2A1D] p-8 rounded-lg border 
+             border-[#2A4A3A] space-y-6 "
           >
             <div>
-              <label className="text-[#F5F1E8] font-semibold">Ad, Soyad</label>
+              <label className="text-[#F5F1E8]  w-[95%] font-semibold">Ad, Soyad</label>
               <input
                 type="text"
                 required
@@ -78,7 +79,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="text-[#F5F1E8] font-semibold">Email</label>
+              <label className="text-[#F5F1E8] w-[95%] font-semibold">Email</label>
               <input
                 type="email"
                 required
@@ -91,7 +92,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="text-[#F5F1E8] font-semibold">Telefon</label>
+              <label className="text-[#F5F1E8] w-[95%] font-semibold">Telefon</label>
               <input
                 type="tel"
                 required
@@ -104,14 +105,14 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="text-[#F5F1E8] font-semibold">Mesaj</label>
+              <label className="text-[#F5F1E8] w-[95%]   font-semibold">Mesaj</label>
               <textarea
                 required
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
-                className="w-full mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] min-h-[120px] focus:border-[#C9A24D]"
+                className="w-full mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] min-h-30 focus:border-[#C9A24D]"
               />
             </div>
 
@@ -132,17 +133,17 @@ export default function Contact() {
 
           {/* CONTACT INFO */}
           <div className="space-y-6">
-            <Info icon={<Phone />} title="Telefon" value="+994 55 619 13 13" />
+            <Info icon={<Phone />}  title="Telefon" value="+994 55 619 13 13" />
             <Info icon={<Phone />} title="Telefon" value="+994 55 332 13 13" />
             <Info icon={<Mail />} title="Email" value="ismayilov_88@mail.ru" />
             <Info icon={<Mail />} title="Email" value="kamilla.greenproject@gmail.com" />
             <Info icon={<MapPin />} title="Ünvan" value="Bakı, Azərbaycan" />
 
-            <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A]">
+            <div className="bg-[#0F2A1D] p-6  w-[95%] rounded-lg border border-[#2A4A3A]">
               <h3 className="text-xl font-bold text-[#F5F1E8] mb-4">
                 Sosial Şəbəkələr
               </h3>
-              <div className="flex gap-4">
+              <div className="flex gap-4 ">
                 <Link className="bg-transparent" href={'https://www.instagram.com/greenproject.az/'}>
                 <FaInstagram  size={27} className="text-[#C9A24D] hover:scale-105 transition-transform duration-300 "/>
                 </Link>
@@ -165,7 +166,7 @@ function Info({
   value: ReactNode
 }) {
   return (
-    <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A] flex gap-4 items-center">
+    <div className="bg-[#0F2A1D] p-6 rounded-lg w-[95%] border border-[#2A4A3A] flex gap-4 items-center">
       <div className="bg-[#C9A24D]/10 p-3 rounded">
         {icon}
       </div>
