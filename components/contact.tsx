@@ -22,15 +22,15 @@ export default function Contact() {
 
     emailjs
       .send(
-        "service_12l9j1q",
-        "template_zypzkrb",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
         {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
         },
-        "fT4CUHI5KgxM2Jrp-"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
       )
       .then(() => {
         setStatus("Mesaj uğurla göndərildi ✅")
@@ -44,8 +44,8 @@ export default function Contact() {
   }
 
   return (
-    <section className="py-24 px-4 w-full bg-[#1E3A2F]" id="contact">
-      <div className=" w-full mx-auto ">
+    <section className="py-24 px-4 bg-[#1E3A2F]" id="contact">
+      <div className="max-w-7xl mx-auto">
 
         {/* TITLE */}
         <div className="text-center mb-10">
@@ -57,13 +57,12 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 w-full max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 w-full max-w-5xl mx-auto">
 
           {/* FORM */}
           <form
             onSubmit={handleSubmit}
-            className="bg-[#0F2A1D] p-8 rounded-lg border 
-             border-[#2A4A3A] space-y-6 w-full"
+            className="bg-[#0F2A1D] p-6 lg:p-8 rounded-lg border border-[#2A4A3A] space-y-5 lg:space-y-6 w-full order-2 lg:order-1"
           >
             <div>
               <label className="text-[#F5F1E8] w-full font-semibold">Ad, Soyad</label>
@@ -132,14 +131,14 @@ export default function Contact() {
           </form>
 
           {/* CONTACT INFO */}
-          <div className="space-y-6">
+          <div className="space-y-4 lg:space-y-6 order-1 lg:order-2">
             <Info icon={<Phone />} title="Telefon" value="+994 55 619 13 13" />
             <Info icon={<Phone />} title="Telefon" value="+994 55 332 13 13" />
             <Info icon={<Mail />} title="Email" value="ismayilov_88@mail.ru" />
             <Info icon={<Mail />} title="Email" value="kamilla.greenproject@gmail.com" />
             <Info icon={<MapPin />} title="Ünvan" value="Bakı, Azərbaycan" />
 
-            <div className="bg-[#0F2A1D] p-6 w-full rounded-lg border border-[#2A4A3A]">
+            <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A]">
               <h3 className="text-xl font-bold text-[#F5F1E8] mb-4">
                 Sosial Şəbəkələr
               </h3>
@@ -166,13 +165,13 @@ function Info({
   value: ReactNode
 }) {
   return (
-    <div className="bg-[#0F2A1D] p-6 rounded-lg w-full border border-[#2A4A3A] flex gap-4 items-center">
-      <div className="bg-[#C9A24D]/10 p-3 rounded shrink-0">
+    <div className="bg-[#0F2A1D] p-4 lg:p-6 rounded-lg border border-[#2A4A3A] flex gap-4 items-center">
+      <div className="bg-[#C9A24D]/10 p-3 lg:p-4 rounded shrink-0">
         {icon}
       </div>
-      <div className="overflow-hidden">
-        <h3 className="text-[#F5F1E8] font-bold">{title}</h3>
-        <p className="text-[#E5D5A8] truncate md:whitespace-normal">{value}</p>
+      <div className="overflow-hidden flex-1">
+        <h3 className="text-[#F5F1E8] font-bold text-lg mb-1">{title}</h3>
+        <p className="text-[#E5D5A8] break-words">{value}</p>
       </div>
     </div>
   )

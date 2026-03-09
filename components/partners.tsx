@@ -1,14 +1,6 @@
 "use client"
 
-// Partner logos - using placeholders
-const partners = [
-  { name: "PMD Group", logo: "https://pmdgroup.az/images/pmd.svg" },
-  { name: "PDM Projects", logo: "https://pmdprojects.az/M0/mainbgr/20240403_100914_1712124554_853e619585.svg" },
-  { name: "FMG Group", logo: "https://www.fmg.az/assets/images/logo.svg" },
-  { name: "MOR MMC", logo: "https://www.mor.az/svg/logo-ag.png" },
-  { name: "IMF Group", logo: "https://imfco.az/images/logo.svg" },
-  { name: "UNICO Group ", logo: "https://b4064436.smushcdn.com/4064436/wp-content/uploads/2025/08/uloq99.webp?lossy=2&strip=1&webp=1" },
-]
+import { partners } from "@/lib/data"
 
 export default function Partners() {
   return (

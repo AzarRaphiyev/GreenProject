@@ -27,7 +27,7 @@ export default function About() {
           </div>
 
           {/* Image */}
-          <div className="relative h-125 rounded-lg overflow-hidden shadow-2xl">
+          <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-2xl">
             <img src="/professional-landscaping-team-premium-garden-desig.jpg" alt="About GREEN PROJECT" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-liner-to-t from-[#0F2A1D]/50 to-transparent" />
           </div>

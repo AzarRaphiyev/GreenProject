@@ -1,37 +1,4 @@
-import { Leaf, Palette, Sprout, Wrench, GraduationCap, Flower2 } from "lucide-react"
-
-const services = [
-  {
-    icon: Leaf,
-    title: "Kompleks yaşıllaşdırma",
-    description: "Tam həllər sizin məkanınız üçün",
-  },
-  {
-    icon: Palette,
-    title: "Landşaft dizaynı",
-    description: "Kreativ və funksional dizayn layihələri",
-  },
-  {
-    icon: Sprout,
-    title: "Bitki əkini",
-    description: "Keyfiyyətli bitki materialları və peşəkar əkim",
-  },
-  {
-    icon: Wrench,
-    title: "Texniki qulluq",
-    description: "Davamlı yaşıllıq üçün müntəzəm qulluq",
-  },
-  {
-    icon: GraduationCap,
-    title: "Aqronom konsultasiyası",
-    description: "Peşəkar məsləhət və tövsiyələr",
-  },
-  {
-    icon: Flower2,
-    title: "Dekorativ kompozisiyalar",
-    description: "Estetik və unikal landşaft həlləri",
-  },
-]
+import { services } from "@/lib/data"
 
 export default function Services() {
   return (

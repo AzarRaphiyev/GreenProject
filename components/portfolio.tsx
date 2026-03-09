@@ -1,106 +1,29 @@
 "use client"
 
 import { useState } from "react"
-import { X } from "lucide-react"
+import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
-const projects = [
-  {
-    id: 1,
-    name: "Hilton Garden İnn Baku",
-    description: "Premium səviyyəli yaşıllaşdırma işlərinin tam icrası",
-    image: "https://avatars.mds.yandex.net/i?id=f5431ec7e97c91e5ef10b18a2d2fde8cd2031d20-16476092-images-thumbs&n=13",
-  },
-  {
-    id: 2,
-    name: "Ambassador Suites Baku",
-    description: "Premium təbii qazon örtüyünün salınması",
-    image: "https://www.fmg.az/uploads/fields/2019/04/ambassador-suites-portfolio_1.jpg",
-  },
-  {
-    id: 3,
-    name: "Hillside Residence",
-    description: "Premium təbii qazon örtüyünün salınması",
-    image: "https://avatars.mds.yandex.net/i?id=5eb2d999f150e6ed297df522943c5088_l-4571839-images-thumbs&n=13",
-  },
-  {
-    id: 4,
-    name: "Təbriz Evləri",
-    description: "Premium təbii qazon örtüyünün salınması",
-    image: "https://djb.az/uploads/posts/2018-01/1515048083_067.jpg",
-  },
-  {
-    id: 5,
-    name: "Çinar Plaza",
-    description: "Premium təbii qazon örtüyünün salınması",
-    image: "https://pmdgroup.az/resized/resize1920/center/pages/46/photos-3.jpg",
-  },
-  {
-    id: 6,
-    name: "Excelsior Hotel & Spa Baku",
-    description: "Premium təbii qazon örtüyünün salınması",
-    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/84/9d/9b/excelsior-hotel-baku.jpg?w=900&h=500&s=1",
-  },
-  {
-    id: 7,
-    name: "Zaqatala Kapital Bank",
-    description: "Yaşıllıqlara baxım xidməti",
-    image: "https://pmdprojects.az/img/1583/thumbs/kapital_bank_zaqatala",
-  },
-  {
-    id: 8,
-    name: "Port Baku Tower 1",
-    description: "Ofis daxilində premium dekorativ bitkilərin seçimi və quraşdırılması",
-    image: "https://chapman-taylor.transforms.svdcdn.com/production/uploads/Chapman_Taylor_Port-Baku-Tower_018.jpg?w=2048&h=1366&q=90&auto=format&fit=crop&dm=1574183257&s=3b436ed7a3bf54a77aa14c581675d815",
-  },
-  {
-    id: 9,
-    name: "Azərbaycan Xəzər Dəniz Gəmiçiliyi",
-    description: "Premium səviyyəli yaşıllaşdırma işləri",
-    image: "/luxury-villa-garden-landscaping.jpg",
-  },
-  {
-    id: 10,
-    name: "Pirallahi Nərəkənd",
-    description: "Premium səviyyəli yaşıllaşdırma işləri",
-    image: "https://lh4.googleusercontent.com/proxy/LgMvnUHKTQommx47osUEmtDMSAbJV7b6kQROjjrzEGMjiTiXIzpA5vxyWg-pyhGiwKso2itdoHID0jWMn4gPdPk3oEhy7bgLnNJ2a887dMnvafs",
-  },
-  {
-    id: 11,
-    name: "Zəngilan rayonu Ağalı Hotel",
-    description: "Premium səviyyəli yaşıllaşdırma işləri",
-    image: "https://iqtisadiyyat.az/storage/posts/3df26009a3cae18.webp",
-  },
-  {
-    id: 12,
-    name: "Xazri Villa Sea Side Baku",
-    description: "Ərazinin peşəkar şəkildə təmizlənməsi və abadlığa hazırlığı",
-    image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/607879667.jpg?k=d24f3b9463ac39bfb93d94fea14dc650d5f599029d12f3baf64fd99c3f14df4f&o=",
-  },
-  {
-    id: 13,
-    name: "Şuşa SOCAR petrolium",
-    description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
-    image: "https://az.trend.az/media/2025/02/06/socar_zapravka_shusha_060225_4.jpg",
-  },
-  {
-    id: 14,
-    name: "Müşfiqabad SOCAR petrolium",
-    description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
-    image: "https://media.licdn.com/dms/image/v2/D4E22AQGI1nJHs6IVsA/feedshare-shrink_800/feedshare-shrink_800/0/1723455152907?e=2147483647&v=beta&t=psQV5zAsAbEXKzimAAws4vt6uJPAHbnqVQtq_v4K8rc",
-  },
-  {
-    id: 15,
-    name: "Şəmkir SOCAR petrolium",
-    description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
-    image: "https://socar-petroleum.az/imageg_500_300_news_23_64_1.png_articles_23.jpg",
-  },
- 
-]
+import { projects } from "@/lib/data"
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 6
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (selectedProject) {
+      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length)
+    }
+  }
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (selectedProject) {
+      setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length)
+    }
+  }
 
   // Calculate pagination
   const totalPages = Math.ceil(projects.length / itemsPerPage)
@@ -122,13 +45,16 @@ export default function Portfolio() {
               key={`${currentPage}-${project.id}`}
               className="group cursor-pointer animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => {
+                setSelectedProject(project)
+                setCurrentImageIndex(0)
+              }}
             >
               <div className="relative h-64 rounded-lg overflow-hidden shadow-xl">
                 <img
-                  src={project.image || "/placeholder.svg"}
+                  src={project.images[0] || "/placeholder.svg"}
                   alt={project.name}
-                   loading="lazy"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/35 z-10" />
@@ -148,11 +74,10 @@ export default function Portfolio() {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`w-10 h-10 rounded-lg border-2 transition-all duration-300 font-semibold ${
-                  currentPage === page
-                    ? "bg-[#C9A24D] border-[#C9A24D] text-[#0F2A1D]"
-                    : "border-[#C9A24D] text-[#C9A24D] hover:bg-[#C9A24D] hover:text-[#0F2A1D]"
-                }`}
+                className={`w-10 h-10 rounded-lg border-2 transition-all duration-300 font-semibold ${currentPage === page
+                  ? "bg-[#C9A24D] border-[#C9A24D] text-[#0F2A1D]"
+                  : "border-[#C9A24D] text-[#C9A24D] hover:bg-[#C9A24D] hover:text-[#0F2A1D]"
+                  }`}
               >
                 {page}
               </button>
@@ -174,11 +99,32 @@ export default function Portfolio() {
             >
               <X className="h-8 w-8" />
             </button>
-            <img
-              src={selectedProject.image || "/placeholder.svg"}
-              alt={selectedProject.name}
-              className="w-full h-auto rounded-lg"
-            />
+            <div className="relative group flex items-center justify-center bg-black/50 rounded-lg overflow-hidden">
+              <img
+                src={selectedProject.images[currentImageIndex] || "/placeholder.svg"}
+                alt={`${selectedProject.name} - ${currentImageIndex + 1}`}
+                className="w-full max-h-[70vh] object-contain rounded-lg"
+              />
+              {selectedProject.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#C9A24D] text-white p-2 rounded-full transition-colors flex items-center justify-center"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#C9A24D] text-white p-2 rounded-full transition-colors flex items-center justify-center"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    {currentImageIndex + 1} / {selectedProject.images.length}
+                  </div>
+                </>
+              )}
+            </div>
             <div className="mt-6 text-center">
               <h3 className="font-serif text-3xl font-bold text-[#F5F1E8] mb-2">{selectedProject.name}</h3>
               <p className="text-[#E5D5A8] text-lg">{selectedProject.description}</p>

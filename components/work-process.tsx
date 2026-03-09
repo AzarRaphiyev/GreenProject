@@ -1,35 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Phone, Ruler, FileText, Hammer, CheckCircle2 } from "lucide-react"
-
-const steps = [
-  {
-    icon: Phone,
-    title: "İlkin müraciət",
-    description: "Sizinlə əlaqə qururuq və tələblərinizi öyrənirik",
-  },
-  {
-    icon: Ruler,
-    title: "Ölçmə və analiz",
-    description: "Sahəni detallı olaraq öyrənir və ölçülər aparırıq",
-  },
-  {
-    icon: FileText,
-    title: "Təklif",
-    description: "Fərdi dizayn layihəsi və təklif hazırlayırıq",
-  },
-  {
-    icon: Hammer,
-    title: "Əkin və icra",
-    description: "Peşəkar komandamız işləri yüksək keyfiyyətlə yerinə yetirir",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Təhvil",
-    description: "Layihəni təhvil verir və zəmanət təqdim edirik",
-  },
-]
+import { steps } from "@/lib/data"
 
 export default function WorkProcess() {
   const [visibleSteps, setVisibleSteps] = useState<number[]>([])
@@ -42,7 +14,7 @@ export default function WorkProcess() {
           if (entry.isIntersecting) {
             steps.forEach((_, index) => {
               setTimeout(() => {
-                setVisibleSteps((prev) => [...prev, index])
+                setVisibleSteps((prev: number[]) => [...prev, index])
               }, index * 200)
             })
           }
@@ -74,9 +46,8 @@ export default function WorkProcess() {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`relative transition-all duration-700 ${
-                  visibleSteps.includes(index) ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-                }`}
+                className={`relative transition-all duration-700 ${visibleSteps.includes(index) ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+                  }`}
               >
                 <div className={`flex items-center gap-8 ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
                   {/* Icon Circle */}
