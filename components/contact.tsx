@@ -111,7 +111,7 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
-                className="w-full mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] min-h-[120px] focus:border-[#C9A24D]"
+                className="w-full  mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] min-h-[120px] focus:border-[#C9A24D]"
               />
             </div>
 
@@ -169,9 +169,9 @@ function Info({
       <div className="bg-[#C9A24D]/10 p-3 lg:p-4 rounded shrink-0">
         {icon}
       </div>
-      <div className="overflow-hidden flex-1">
+      <div className="min-w-0 flex-1">
         <h3 className="text-[#F5F1E8] font-bold text-lg mb-1">{title}</h3>
-        <p className="text-[#E5D5A8] break-words">{value}</p>
+        <p className="text-[#E5D5A8] break-all">{value}</p>
       </div>
     </div>
   )
