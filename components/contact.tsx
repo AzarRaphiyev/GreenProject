@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser"
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"
 import Link from "next/link"
 import { FaInstagram } from "react-icons/fa";
+import { toast } from "sonner";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,7 +14,6 @@ export default function Contact() {
     message: "",
   })
 
-  const [status, setStatus] = useState("")
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -33,12 +33,12 @@ export default function Contact() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
       )
       .then(() => {
-        setStatus("Mesaj uğurla göndərildi ✅")
+        toast.success("Mesaj uğurla göndərildi ✅")
         setFormData({ name: "", email: "", phone: "", message: "" })
         setLoading(false)
       })
       .catch(() => {
-        setStatus("Xəta baş verdi ❌ Zəhmət olmasa yenidən cəhd edin.")
+        toast.error("Xəta baş verdi ❌ Zəhmət olmasa yenidən cəhd edin.")
         setLoading(false)
       })
   }
@@ -65,8 +65,9 @@ export default function Contact() {
             className="bg-[#0F2A1D] p-6 lg:p-8 rounded-lg border border-[#2A4A3A] space-y-5 lg:space-y-6 w-full order-2 lg:order-1"
           >
             <div>
-              <label className="text-[#F5F1E8] w-full font-semibold">Ad, Soyad</label>
+              <label htmlFor="name" className="text-[#F5F1E8] w-full font-semibold">Ad, Soyad</label>
               <input
+                id="name"
                 type="text"
                 required
                 value={formData.name}
@@ -78,8 +79,9 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="text-[#F5F1E8] w-full font-semibold">Email</label>
+              <label htmlFor="email" className="text-[#F5F1E8] w-full font-semibold">Email</label>
               <input
+                id="email"
                 type="email"
                 required
                 value={formData.email}
@@ -91,8 +93,9 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="text-[#F5F1E8] w-full font-semibold">Telefon</label>
+              <label htmlFor="phone" className="text-[#F5F1E8] w-full font-semibold">Telefon</label>
               <input
+                id="phone"
                 type="tel"
                 required
                 value={formData.phone}
@@ -104,30 +107,27 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="text-[#F5F1E8] w-full font-semibold">Mesaj</label>
+              <label htmlFor="message" className="text-[#F5F1E8] w-full font-semibold">Mesaj</label>
               <textarea
+                id="message"
                 required
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
-                className="w-full  mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] min-h-[120] focus:border-[#C9A24D]"
+                className="w-full  mt-2 p-3 bg-[#1E3A2F] text-white rounded border border-[#2A4A3A] min-h-[120px] focus:border-[#C9A24D]"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
+              aria-label="Mesajı göndər"
               className="w-full bg-[#C9A24D] hover:bg-[#B89240] text-[#0F2A1D] font-semibold py-4 rounded transition hover:scale-105"
             >
               {loading ? "Göndərilir..." : "Göndər"}
             </button>
 
-            {status && (
-              <p className="text-center text-[#C9A24D] mt-4">
-                {status}
-              </p>
-            )}
           </form>
 
           {/* CONTACT INFO */}
@@ -143,7 +143,7 @@ export default function Contact() {
                 Sosial Şəbəkələr
               </h3>
               <div className="flex gap-4">
-                <Link className="bg-transparent" href={'https://www.instagram.com/greenproject.az/'}>
+                <Link aria-label="Instagram Səhifəmiz" className="bg-transparent" href={'https://www.instagram.com/greenproject.az/'} target="_blank" rel="noopener noreferrer">
                   <FaInstagram size={27} className="text-[#C9A24D] hover:scale-105 transition-transform duration-300 " />
                 </Link>
               </div>

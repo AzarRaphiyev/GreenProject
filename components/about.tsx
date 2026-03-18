@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function About() {
   return (
     <section className="py-24 px-4 bg-[#0F2A1D]" id="about">
@@ -28,7 +30,13 @@ export default function About() {
 
           {/* Image */}
           <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-2xl">
-            <img src="/professional-landscaping-team-premium-garden-desig.jpg" alt="About GREEN PROJECT" className="w-full h-full object-cover" />
+            <Image
+              src="/about.jpeg"
+              alt="About GREEN PROJECT"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
             <div className="absolute inset-0 bg-liner-to-t from-[#0F2A1D]/50 to-transparent" />
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 import { projects } from "@/lib/data"
 
@@ -35,7 +36,7 @@ export default function Portfolio() {
     <section className="py-24 px-4 bg-[#0F2A1D]" id="portfolio">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Portfolio</h2>
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Layihələrimiz</h2>
           <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">Tamamladığımız layihələr</p>
         </div>
 
@@ -51,11 +52,12 @@ export default function Portfolio() {
               }}
             >
               <div className="relative h-64 rounded-lg overflow-hidden shadow-xl">
-                <img
+                <Image
                   src={project.images[0] || "/placeholder.svg"}
                   alt={project.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A1D] via-[#0F2A1D]/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 z-30">
@@ -98,11 +100,12 @@ export default function Portfolio() {
             >
               <X className="h-8 w-8" />
             </button>
-            <div className="relative group flex items-center justify-center bg-black/50 rounded-lg overflow-hidden">
-              <img
+            <div className="relative group flex items-center justify-center bg-black/50 rounded-lg overflow-hidden w-full h-[70vh]">
+              <Image
                 src={selectedProject.images[currentImageIndex] || "/placeholder.svg"}
                 alt={`${selectedProject.name} - ${currentImageIndex + 1}`}
-                className="w-full max-h-[70vh] object-contain rounded-lg"
+                fill
+                className="object-contain rounded-lg"
               />
               {selectedProject.images.length > 1 && (
                 <>

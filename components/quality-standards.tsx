@@ -9,7 +9,7 @@ export default function QualityStandards() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <div className="relative h-72 sm:h-96 md:h-[500px] rounded-lg overflow-hidden shadow-2xl order-2 md:order-1">
-            <img src="/quality-landscaping-standards-premium-garden-certi.jpg" alt="Quality Standards" className="w-full h-full object-cover" />
+            <img src="/quality.jpeg" alt="Quality Standards" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-liner-to-t from-[#1E3A2F]/50 to-transparent" />
           </div>
 

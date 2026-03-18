@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { forwardRef, useEffect, useState } from "react"
 
 export default function Hero() {
@@ -17,7 +18,13 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img src="/luxury-garden-landscaping-premium-green-nature.jpg" alt="Luxury Garden" className="w-full h-full object-cover" />
+        <Image
+          src="/luxury-garden-landscaping-premium-green-nature.jpg"
+          alt="Luxury Garden"
+          fill
+          priority
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0F2A1D]/80 via-[#0F2A1D]/70 to-[#0F2A1D]/90" />
       </div>
 
