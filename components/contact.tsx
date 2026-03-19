@@ -22,15 +22,15 @@ export default function Contact() {
 
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_4xbvq8i",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_u6pbikz",
         {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "fT4CUHI5KgxM2Jrp-"
       )
       .then(() => {
         toast.success("Mesaj uğurla göndərildi ✅")
