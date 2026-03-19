@@ -10,6 +10,7 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
+  const [filter, setFilter] = useState<"Bütün" | "Tamamlanmış" | "Davam edən">("Bütün")
   const itemsPerPage = 6
 
   const nextImage = (e: React.MouseEvent) => {
@@ -26,18 +27,42 @@ export default function Portfolio() {
     }
   }
 
+  // Filter projects before pagination
+  const filteredProjects = projects.filter(project => {
+    if (filter === "Bütün") return true;
+    return project.status === filter;
+  });
+
   // Calculate pagination
-  const totalPages = Math.ceil(projects.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentProjects = projects.slice(startIndex, endIndex)
+  const currentProjects = filteredProjects.slice(startIndex, endIndex)
 
   return (
     <section className="py-24 px-4 bg-[#0F2A1D]" id="portfolio">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="font-serif text-4xl md:text-6xl font-bold text-[#F5F1E8] mb-4">Layihələrimiz</h2>
-          <p className="text-xl text-[#E5D5A8] max-w-2xl mx-auto">Tamamladığımız layihələr</p>
+
+        </div>
+
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {["Bütün", "Tamamlanmış", "Davam edən"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => {
+                setFilter(tab as any);
+                setCurrentPage(1);
+              }}
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${filter === tab
+                  ? "bg-[#C9A24D] text-[#0F2A1D]"
+                  : "bg-transparent border border-[#C9A24D] text-[#C9A24D] hover:bg-[#C9A24D]/10"
+                }`}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

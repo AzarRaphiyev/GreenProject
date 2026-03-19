@@ -1,4 +1,5 @@
 import { Leaf } from "lucide-react"
+import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa"
 
 export default function Footer() {
   return (
@@ -50,9 +51,20 @@ export default function Footer() {
             <h3 className="font-serif text-xl font-bold text-[#F5F1E8] mb-4">Əlaqə</h3>
             <ul className="space-y-2 text-[#E5D5A8]">
               <li>+994 55 619 13 13</li>
-              <li>kamilla.greenproject@gmail.com</li>
+              <li>ismayilov_88@mail.ru</li>
               <li>Bakı, Azərbaycan</li>
             </ul>
+            <div className="flex gap-4 mt-6">
+              <a aria-label="Instagram" href="https://www.instagram.com/greenproject.az/" target="_blank" rel="noopener noreferrer">
+                <FaInstagram size={24} className="text-[#E5D5A8] hover:text-[#C9A24D] hover:scale-105 transition-all duration-300" />
+              </a>
+              <a aria-label="TikTok" href="https://www.tiktok.com/@greenproject.az?_r=1&_t=ZS-94mvR7vdMKi" target="_blank" rel="noopener noreferrer">
+                <FaTiktok size={24} className="text-[#E5D5A8] hover:text-[#C9A24D] hover:scale-105 transition-all duration-300" />
+              </a>
+              <a aria-label="Facebook" href="#" target="_blank" rel="noopener noreferrer">
+                <FaFacebook size={24} className="text-[#E5D5A8] hover:text-[#C9A24D] hover:scale-105 transition-all duration-300" />
+              </a>
+            </div>
           </div>
         </div>
 

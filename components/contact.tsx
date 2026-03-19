@@ -3,7 +3,7 @@ import { ReactNode, useState } from "react"
 import emailjs from "@emailjs/browser"
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"
 import Link from "next/link"
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import { toast } from "sonner";
 
 export default function Contact() {
@@ -135,7 +135,6 @@ export default function Contact() {
             <Info icon={<Phone />} title="Telefon" value="+994 55 619 13 13" />
             <Info icon={<Phone />} title="Telefon" value="+994 55 332 13 13" />
             <Info icon={<Mail />} title="Email" value="ismayilov_88@mail.ru" />
-            <Info icon={<Mail />} title="Email" value="kamilla.greenproject@gmail.com" />
             <Info icon={<MapPin />} title="Ünvan" value="Bakı, Azərbaycan" />
 
             <div className="bg-[#0F2A1D] p-6 rounded-lg border border-[#2A4A3A]">
@@ -145,6 +144,12 @@ export default function Contact() {
               <div className="flex gap-4">
                 <Link aria-label="Instagram Səhifəmiz" className="bg-transparent" href={'https://www.instagram.com/greenproject.az/'} target="_blank" rel="noopener noreferrer">
                   <FaInstagram size={27} className="text-[#C9A24D] hover:scale-105 transition-transform duration-300 " />
+                </Link>
+                <Link aria-label="TikTok Səhifəmiz" className="bg-transparent" href={'https://www.tiktok.com/@greenproject.az?_r=1&_t=ZS-94mvR7vdMKi'} target="_blank" rel="noopener noreferrer">
+                  <FaTiktok size={25} className="text-[#C9A24D] hover:scale-105 transition-transform duration-300 " />
+                </Link>
+                <Link aria-label="Facebook Səhifəmiz" className="bg-transparent" href={'#'} target="_blank" rel="noopener noreferrer">
+                  <FaFacebook size={27} className="text-[#C9A24D] hover:scale-105 transition-transform duration-300 " />
                 </Link>
               </div>
             </div>
