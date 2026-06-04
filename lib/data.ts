@@ -141,20 +141,10 @@ export const projects = [
       
     ],
   },
-  {
-    id: 12,
-    name: "Port Baku Tower 1",
-    description: "Ofis daxilində premium dekorativ bitkilərin seçimi və quraşdırılması",
-    status: "Tamamlanmış",
-    images: [
-     "/portBaku1/portBaku1.jpg",
-     "/portBaku1/portBaku2.jpg",
-     "/portBaku1/portBaku3.jpg",
-    ],
-  },
+
  
   {
-    id: 13,
+    id: 12,
     name: "Pirallahi Nərəkənd",
     description: "Premium səviyyəli yaşıllaşdırma işləri",
     status: "Tamamlanmış",
@@ -164,7 +154,7 @@ export const projects = [
     ],
   },
   {
-    id: 14,
+    id: 13,
     name: "Zəngilan rayonu Ağalı Hotel",
     description: "Premium səviyyəli yaşıllaşdırma işləri",
     status: "Tamamlanmış",
@@ -173,7 +163,7 @@ export const projects = [
     ],
   },
   {
-    id: 15,
+    id: 14,
     name: "Xazri Villa Sea Side Baku",
     description: "Ərazinin peşəkar şəkildə təmizlənməsi və abadlığa hazırlığı",
     status: "Tamamlanmış",
@@ -185,7 +175,7 @@ export const projects = [
     ],
   },
   {
-    id: 16,
+    id: 15,
     name: "Şuşa SOCAR petrolium",
     description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
     status: "Tamamlanmış",
@@ -195,7 +185,7 @@ export const projects = [
     ],
   },
   {
-    id: 17,
+    id: 16,
     name: "Müşfiqabad SOCAR petrolium",
     description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
     status: "Tamamlanmış",
@@ -205,7 +195,7 @@ export const projects = [
     ],
   },
   {
-    id: 18,
+    id: 17,
     name: "Şəmkir SOCAR petrolium",
     description: "Yaşıllaşdırma və dekorativ landşaft işləri.",
     status: "Tamamlanmış",
