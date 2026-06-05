@@ -152,7 +152,7 @@ export const projects = [
     description: "Premium səviyyəli yaşıllaşdırma işləri",
     status: "Tamamlanmış",
     images: [
-      "https://lh4.googleusercontent.com/proxy/LgMvnUHKTQommx47osUEmtDMSAbJV7b6kQROjjrzEGMjiTiXIzpA5vxyWg-pyhGiwKso2itdoHID0jWMn4gPdPk3oEhy7bgLnNJ2a887dMnvafs",
+      "/projects/nerekend.png",
      
     ],
   },
