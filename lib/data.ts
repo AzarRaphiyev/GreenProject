@@ -15,6 +15,18 @@ import {
 export const projects = [
   {
     id: 1,
+    name: "WUF13 - URBAN EXPO",
+    description: "Premium səviyyəli yaşıllaşdırma işlərinin tam icrası",
+    status: "Tamamlanmış",
+    images: [
+      "/WUF13 - URBAN EXPO/WUF1.jpeg",
+      "/WUF13 - URBAN EXPO/WUF2.jpeg",
+      "/WUF13 - URBAN EXPO/WUF3.jpeg",
+      "/WUF13 - URBAN EXPO/WUF4.jpeg"
+    ],
+  },
+  {
+    id: 2,
     name: "WUF13 - VIP ZONE",
     description: "Premium səviyyəli yaşıllaşdırma işlərinin tam icrası",
     status: "Tamamlanmış",
@@ -30,7 +42,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "WUF13 - AZERBIJAN PAVILION",
     description: "Premium səviyyəli yaşıllaşdırma işlərinin tam icrası",
     status: "Tamamlanmış",
@@ -44,7 +56,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: "Port Baku Tower 1",
     description: "Premium səviyyəli yaşıllaşdırma işlərinin tam icrası",
     status: "Tamamlanmış",
@@ -56,7 +68,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "Port Baku Tower 2",
     description: "Premium səviyyəli yaşıllaşdırma işlərinin tam icrası",
     status: "Tamamlanmış",
@@ -70,7 +82,7 @@ export const projects = [
   },
   
   {
-    id: 5,
+    id: 6,
     name: "Hilton Garden İnn Baku",
     description: "Premium səviyyəli yaşıllaşdırma işlərinin tam icrası",
     status: "Tamamlanmış",
@@ -80,15 +92,6 @@ export const projects = [
       "/hilton/Hilton3.jpg",
       "/hilton/Hilton4.jpg",
       "/hilton/Hilton5.jpg",
-    ],
-  },
-  {
-    id: 6,
-    name: "Ambassador Suites Baku",
-    description: "Premium təbii qazon örtüyünün salınması",
-    status: "Tamamlanmış",
-    images: [
-      "https://i.tez-tour.travel/img/hotels/1938/0.jpg"
     ],
   },
   {
