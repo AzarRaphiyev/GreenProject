@@ -285,4 +285,5 @@ export const partners = [
   { name: "MOR MMC", logo: "https://www.mor.az/svg/logo-ag.png" },
   { name: "IMF Group", logo: "https://imfco.az/images/logo.svg" },
   { name: "UNICO Group ", logo: "https://b4064436.smushcdn.com/4064436/wp-content/uploads/2025/08/uloq99.webp?lossy=2&strip=1&webp=1" },
+  { name: "core enginering ", logo: "./core_enginering.jpg" },
 ]
