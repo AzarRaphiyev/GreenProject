@@ -286,4 +286,5 @@ export const partners = [
   { name: "IMF Group", logo: "https://imfco.az/images/logo.svg" },
   { name: "UNICO Group ", logo: "https://b4064436.smushcdn.com/4064436/wp-content/uploads/2025/08/uloq99.webp?lossy=2&strip=1&webp=1" },
   { name: "core enginering ", logo: "./core_enginering.jpg" },
+  { name: "bymedgalchi ", logo: "https://bymedgalchi.com/wp-content/uploads/2020/07/bymed-1.png" },
 ]
